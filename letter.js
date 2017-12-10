@@ -1,11 +1,25 @@
-// Letter: Used for each letter in the current word.
-// Each letter object should either display an underlying character, or a blank placeholder (such as an underscore), depending on whether or not the user has guessed the letter.
-// This should contain letter specific logic and data.
+// letter constructor
+let Word = require("./word.js");
+let guessArr = [];
+let guessesArr = [];
 
-function letter(letter, word) {
+function Letter(letter, word) {
   this.letter = letter;
   this.word = word;
-  this.letterCheck = function(this.letter) {
-    
-  }
+  this.letterCheck = function(letter, word) {
+    if (word.includes(letter)) {
+      let newWord = new Word(letter, word);
+      newWord.blankMaker(letter, word);
+      newWord.blankFiller(letter, word);
+    } else {
+      let newWord = new Word(letter, word);
+      newWord.blankMaker(letter, word);
+      newWord.blankFiller(letter, word);
+      guessArr.push(letter);
+      guessesArr = guessArr.join(" ");
+      console.log("Guesses You've Made: " + guessesArr);
+    }
+  };
 };
+
+module.exports = Letter;

@@ -3,7 +3,6 @@ let Word = require("./word.js");
 let game = require("./game.js");
 let prompt = require("prompt");
 let num;
-let guesses = 10;
 let gameWord;
 let initialQuestion = {
   properties: {
@@ -23,13 +22,13 @@ let letter = {
 
 console.log("");
 console.log("");
-console.log("--------------------------------------------");
+console.log("============================================");
 console.log("");
 console.log("Welcome to 'The Office' hangman game!");
 console.log("");
 console.log("Each word is a character from the office.");
 console.log("");
-console.log("--------------------------------------------");
+console.log("============================================");
 console.log("");
 console.log("");
 
@@ -56,13 +55,16 @@ function playGame() {
   prompt.get(letter, function(err, data) {
     let newLetter = new Letter(data.letterPicked, gameWord);
     newLetter.letterCheck(data.letterPicked, gameWord);
-    if (guesses > 1) {
-      guesses--;
-      console.log("Guesses Left: " + guesses);
-      playGame();
-    } else {
-      console.log("You Lost... Lets Play Again!")
+    let newWord = new Word(data.letterPicked, gameWord);
+    newWord.gameEnder();
+    if (newWord.gameEnd) {
+      newLetter.resetStats();
       startGame();
+    } else if (newLetter.letterReset) {
+      newLetter.resetStats();
+      startGame();
+    } else {
+      playGame();
     }
   });
 }

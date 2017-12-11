@@ -2,6 +2,7 @@ let Letter = require("./letter.js");
 let Word = require("./word.js");
 let game = require("./game.js");
 let prompt = require("prompt");
+let colors = require("colors");
 let num;
 let gameWord;
 let initialQuestion = {
@@ -24,9 +25,9 @@ console.log("");
 console.log("");
 console.log("============================================");
 console.log("");
-console.log("Welcome to 'The Office' hangman game!");
+console.log("Welcome to 'The Office' hangman game!".yellow);
 console.log("");
-console.log("Each word is a character from the office.");
+console.log("Each word is a character from the office.".yellow);
 console.log("");
 console.log("============================================");
 console.log("");
@@ -39,9 +40,9 @@ startGame();
 function startGame() {
   prompt.get(initialQuestion, function(err, data) {
     if (data.question !== "yes") {
-      console.log("That's what she said");
+      console.log("That's what she said".yellow);
     } else {
-      console.log("Let's start playing!");
+      console.log("Let's start playing!".yellow);
       num = Math.floor(Math.random() * game.length);
       gameWord = game[num];
       let newWord = new Word(data.letterPicked, gameWord);

@@ -1,5 +1,6 @@
 let Word = require("./word.js");
 let startGame = ("./input.js");
+let colors = require("colors");
 let guessArr = [];
 let guessesArr = [];
 let guesses = 10;
@@ -35,9 +36,9 @@ function Letter(letter, word) {
         console.log("============================================");
         console.log("");
         console.log("");
-        console.log("           The name was: " + word);
+        console.log("           The name was: ".yellow + word.yellow);
         console.log("");
-        console.log("      You are not a true 'Office' fan...");
+        console.log("      You are not a true 'Office' fan...".yellow);
         console.log("");
         console.log("");
         console.log("============================================");

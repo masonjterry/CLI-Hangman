@@ -1,4 +1,5 @@
 let startGame = require("./input.js");
+let colors = require("colors");
 
 let wordArr = [];
 let blanks = [];
@@ -51,7 +52,7 @@ function Word(letter, word) {
       console.log("============================================");
       console.log("");
       console.log("");
-      console.log("    You won! You are a true 'Office' fan!");
+      console.log("    You won! You are a true 'Office' fan!".yellow);
       console.log("");
       console.log("");
       console.log("============================================");

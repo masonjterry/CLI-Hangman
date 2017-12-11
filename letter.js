@@ -35,9 +35,9 @@ function Letter(letter, word) {
         console.log("============================================");
         console.log("");
         console.log("");
-        console.log("The name was: " + word);
+        console.log("           The name was: " + word);
         console.log("");
-        console.log("You are not a true 'Office' fan...");
+        console.log("      You are not a true 'Office' fan...");
         console.log("");
         console.log("");
         console.log("============================================");
